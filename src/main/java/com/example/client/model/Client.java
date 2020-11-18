@@ -20,7 +20,7 @@ import java.util.UUID;
 public class Client {
 
     @Id
-    private UUID clientId;
+    private String clientId;
 
     private String name;
     private String surname;
