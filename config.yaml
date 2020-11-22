@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-app
+  template:
+    metadata:
+      labels:
+        app: client-app
+    spec:
+      containers:
+        - image: client_service
+          name: client-app
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8087
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8087
+  selector:
+    app: client-app
