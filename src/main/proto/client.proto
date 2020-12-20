@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package com.example.instructor;
+option java_multiple_files = true;
+
+message ClientRequest{
+  string id = 1;
+  string name = 2;
+  string surname = 3;
+  int32 age = 4;
+  int32 background = 5;
+  bool student = 6;
+}
+
+message ClientResponse{
+  string id = 1;
+  string name = 2;
+  string surname = 3;
+  int32 age = 4;
+  int32 background = 5;
+  bool student = 6;
+  bool freqBuyer = 7;
+}
+
+message AllClientsRequest{
+}
+
+message AllClientsResponse{
+  repeated ClientResponse clients = 1;
+}
+
+message ClientByIdRequest{
+  string id = 1;
+}
+
+message DeleteClientResponse{
+  string response = 1;
+}
+
+service ClientService{
+  rpc add(ClientRequest) returns (ClientResponse);
+  rpc all(AllClientsRequest) returns (AllClientsResponse);
+  rpc byId (ClientByIdRequest) returns (ClientResponse);
+  rpc delete (ClientByIdRequest) returns (DeleteClientResponse);
+}

@@ -11,7 +11,7 @@ public interface ClientService {
 
     List<Client> getAll();
 
-    Client getById(String id) throws NotFoundException;
+    Client getById(String id);
 
     void deleteById(String id);
 }

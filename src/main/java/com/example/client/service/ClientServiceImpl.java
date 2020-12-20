@@ -29,10 +29,8 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client getById(String id) throws NotFoundException {
-        Optional<Client> optionalClient = clientRepository.findById(id);
-        if(optionalClient.isPresent()) return clientRepository.findById(id).get();
-        else throw new NotFoundException(String.format("Client with id: %s does not exist", id));
+    public Client getById(String id){
+        return clientRepository.getOne(id);
     }
 
     @Override

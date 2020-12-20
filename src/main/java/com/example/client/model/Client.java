@@ -29,7 +29,8 @@ public class Client {
     private boolean student;
     private boolean frequentBuyer;
 
-    public Client(String name, String surname, int age, int background, boolean student){
+    public Client(String id, String name, String surname, int age, int background, boolean student){
+        this.clientId = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
