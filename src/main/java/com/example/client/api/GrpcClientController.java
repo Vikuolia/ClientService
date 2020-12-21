@@ -18,14 +18,13 @@ public class GrpcClientController extends ClientServiceGrpc.ClientServiceImplBas
 
     @Override
     public void add(ClientRequest request, StreamObserver<ClientResponse> responseObserver) {
-        String id = request.getId();
         String name = request.getName();
         String surname = request.getSurname();
         int age = request.getAge();
         int back = request.getBackground();
         boolean student = request.getStudent();
 
-        Client clientAdd = new Client(id, name, surname, age, back, student);
+        Client clientAdd = new Client(name, surname, age, back, student);
         Client clientResponse = clientService.addClient(clientAdd);
 
         ClientResponse response = ClientResponse.newBuilder()

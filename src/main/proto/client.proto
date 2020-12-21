@@ -4,12 +4,11 @@ package com.example.instructor;
 option java_multiple_files = true;
 
 message ClientRequest{
-  string id = 1;
-  string name = 2;
-  string surname = 3;
-  int32 age = 4;
-  int32 background = 5;
-  bool student = 6;
+  string name = 1;
+  string surname = 2;
+  int32 age = 3;
+  int32 background = 4;
+  bool student = 5;
 }
 
 message ClientResponse{
